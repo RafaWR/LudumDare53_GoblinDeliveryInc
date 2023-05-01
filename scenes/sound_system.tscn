@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdjiymj8m8hqe"]
+
+[ext_resource type="Script" path="res://scripts/sound/SoundSystem.gd" id="1_mmk82"]
+[ext_resource type="AudioStream" uid="uid://uqksogefjpun" path="res://sound/music.wav" id="2_lugxe"]
+[ext_resource type="AudioStream" uid="uid://c0bb3m1ret8vp" path="res://sound/button.wav" id="3_guibc"]
+[ext_resource type="AudioStream" uid="uid://u75q0ofsr83" path="res://sound/buy.wav" id="4_ct5vf"]
+[ext_resource type="AudioStream" uid="uid://d1ohborta5n28" path="res://sound/coin.wav" id="5_u0hpq"]
+[ext_resource type="AudioStream" uid="uid://duxjv8jrlwrvq" path="res://sound/select.wav" id="6_oqpei"]
+
+[node name="SoundSystem" type="Node"]
+script = ExtResource("1_mmk82")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lugxe")
+autoplay = true
+bus = &"Music"
+
+[node name="Button" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_guibc")
+volume_db = -5.621
+
+[node name="Buy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ct5vf")
+volume_db = -3.748
+
+[node name="Coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_u0hpq")
+volume_db = 0.937
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_oqpei")
+volume_db = -4.685

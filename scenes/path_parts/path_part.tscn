@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://kan2ynsepvn"]
+
+[ext_resource type="Texture2D" uid="uid://dq6g2mxdrnly8" path="res://sprites/goblin_path.png" id="1_qlkhy"]
+
+[node name="PathPart" type="Sprite2D"]
+texture = ExtResource("1_qlkhy")
+hframes = 4
+vframes = 4

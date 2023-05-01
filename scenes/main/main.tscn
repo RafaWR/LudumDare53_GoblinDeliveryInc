@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://nuf4ij2rkamf"]
+
+[ext_resource type="Script" path="res://scripts/SceneManager.gd" id="1_t5fvt"]
+[ext_resource type="PackedScene" uid="uid://bja834jn2kg30" path="res://scenes/main/title_screen.tscn" id="2_qjceu"]
+[ext_resource type="Script" path="res://scripts/CameraController.gd" id="3_emnv4"]
+[ext_resource type="PackedScene" uid="uid://co6xvtad54578" path="res://scenes/main/game.tscn" id="3_luicb"]
+[ext_resource type="PackedScene" uid="uid://ck33adgessgte" path="res://scenes/main/how_to_play.tscn" id="4_hg5v7"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_t5fvt")
+fade_duration = 0.25
+start_scene = "title_screen"
+scenes = Array[PackedScene]([ExtResource("2_qjceu"), ExtResource("3_luicb"), ExtResource("4_hg5v7")])
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+script = ExtResource("3_emnv4")
+
+[node name="Blackout" type="ColorRect" parent="Camera"]
+z_index = 4096
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

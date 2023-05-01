@@ -1,0 +1,142 @@
+[gd_scene load_steps=12 format=3 uid="uid://q216sylh2fdm"]
+
+[ext_resource type="Script" path="res://scripts/game/goblin/Goblin.gd" id="1_dv7v8"]
+[ext_resource type="Texture2D" uid="uid://djkk384j7va2j" path="res://sprites/goblin.png" id="2_mn1be"]
+[ext_resource type="Script" path="res://scripts/game/Inspectable.gd" id="3_2m3p7"]
+[ext_resource type="Script" path="res://scripts/game/goblin/GoblinPath.gd" id="3_u71pp"]
+[ext_resource type="Texture2D" uid="uid://d0iojft5umke1" path="res://sprites/shimmer.png" id="5_gdrf0"]
+[ext_resource type="Script" path="res://scripts/effects/Shimmer.gd" id="6_ro1q6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlatw"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_x3yss"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ajggu"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vgla7"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(8, 8), Vector2(8, 7), Vector2(8, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjt3h"]
+_data = {
+"RESET": SubResource("Animation_x3yss"),
+"idle": SubResource("Animation_ajggu"),
+"walk": SubResource("Animation_vgla7")
+}
+
+[node name="Goblin" type="Node2D"]
+z_index = 20
+position = Vector2(8, 8)
+script = ExtResource("1_dv7v8")
+hitbox_path = NodePath("Sprite/Hitbox")
+speed = 10
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_mn1be")
+hframes = 8
+vframes = 2
+
+[node name="Shimmer" type="Sprite2D" parent="Sprite"]
+visible = false
+z_index = 2
+texture = ExtResource("5_gdrf0")
+hframes = 5
+frame = 4
+script = ExtResource("6_ro1q6")
+shimmer_delay_range = Vector2(3, 5)
+
+[node name="Hitbox" type="Area2D" parent="Sprite" node_paths=PackedStringArray("inspected")]
+collision_mask = 0
+monitoring = false
+monitorable = false
+script = ExtResource("3_2m3p7")
+inspected = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Sprite/Hitbox"]
+visible = false
+shape = SubResource("CircleShape2D_mlatw")
+
+[node name="Path" type="Node2D" parent="."]
+z_index = -2
+script = ExtResource("3_u71pp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_qjt3h")
+}

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://clmvyfp4sti4m"]
+
+[ext_resource type="Script" path="res://scripts/game/item/ItemEffect.gd" id="1_e4p11"]
+[ext_resource type="Script" path="res://scripts/game/item/Item.gd" id="2_jw0ql"]
+[ext_resource type="Texture2D" uid="uid://1hdq76laf4pp" path="res://sprites/items/large_bag.png" id="3_3q8p5"]
+
+[sub_resource type="Resource" id="Resource_w6r5n"]
+script = ExtResource("1_e4p11")
+type = 10
+value = 0.0
+
+[resource]
+script = ExtResource("2_jw0ql")
+type = 1
+price_range = Vector2i(18, 24)
+sprite = ExtResource("3_3q8p5")
+display_name = "large bag"
+description = "For all your carrying needs!
++2 carry space"
+effects = Array[ExtResource("1_e4p11")]([SubResource("Resource_w6r5n")])

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Texture2D" uid="uid://og3vl01k4qn5" path="res://sprites/quest/quest_item_background.png" id="1_a1u2l"]
+[ext_resource type="Script" path="res://scripts/game/quests/QuestItemDisplay.gd" id="2_dp638"]
+[ext_resource type="Texture2D" uid="uid://dmp0x17kjsmce" path="res://sprites/quest/quest_item_base.png" id="3_oj204"]
+[ext_resource type="Texture2D" uid="uid://dm3le8cd6ay13" path="res://sprites/quest/quest_item_stamp.png" id="4_fqsfo"]
+[ext_resource type="Script" path="res://scripts/game/Inspectable.gd" id="5_ihdvi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b165c"]
+size = Vector2(12, 12)
+
+[node name="QuestItem" type="Sprite2D"]
+position = Vector2(124, 30)
+texture = ExtResource("1_a1u2l")
+hframes = 3
+script = ExtResource("2_dp638")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("3_oj204")
+hframes = 3
+vframes = 3
+
+[node name="Stamp" type="Sprite2D" parent="."]
+texture = ExtResource("4_fqsfo")
+hframes = 3
+vframes = 3
+
+[node name="Button" type="Area2D" parent="." node_paths=PackedStringArray("inspected")]
+collision_mask = 0
+monitoring = false
+monitorable = false
+script = ExtResource("5_ihdvi")
+inspected = NodePath("..")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Button"]
+visible = false
+shape = SubResource("RectangleShape2D_b165c")

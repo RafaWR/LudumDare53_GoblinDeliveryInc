@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bja834jn2kg30"]
+
+[ext_resource type="Texture2D" uid="uid://bdryt7gko0612" path="res://sprites/menus/title_screen.png" id="1_lsltl"]
+[ext_resource type="Theme" uid="uid://djsccrxayxp5r" path="res://fonts/SquareBit.tres" id="2_raio0"]
+[ext_resource type="Script" path="res://scripts/menus/SceneChangeButton.gd" id="3_jnlw2"]
+[ext_resource type="PackedScene" uid="uid://c6ijbsq25nejw" path="res://scenes/sound_slider.tscn" id="4_2v7ef"]
+
+[node name="TitleScreen" type="Sprite2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_lsltl")
+
+[node name="Play" type="Button" parent="."]
+offset_left = -29.0
+offset_top = 12.0
+offset_right = 20.0
+offset_bottom = 23.0
+theme = ExtResource("2_raio0")
+script = ExtResource("3_jnlw2")
+scene_loaded = "game"
+
+[node name="HowToPlay" type="Button" parent="."]
+offset_left = -29.0
+offset_top = 30.0
+offset_right = 20.0
+offset_bottom = 41.0
+theme = ExtResource("2_raio0")
+script = ExtResource("3_jnlw2")
+scene_loaded = "how_to_play"
+
+[node name="SoundSlider" parent="." instance=ExtResource("4_2v7ef")]

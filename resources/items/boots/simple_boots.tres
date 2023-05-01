@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://04c3yuehqnxi"]
+
+[ext_resource type="Script" path="res://scripts/game/item/ItemEffect.gd" id="1_p1hsg"]
+[ext_resource type="Script" path="res://scripts/game/item/Item.gd" id="2_pu2y5"]
+[ext_resource type="Texture2D" uid="uid://cn7bsuusd77q8" path="res://sprites/items/simple_boots.png" id="3_p22ca"]
+
+[sub_resource type="Resource" id="Resource_atqjp"]
+script = ExtResource("1_p1hsg")
+type = 0
+value = 5.0
+
+[resource]
+script = ExtResource("2_pu2y5")
+type = 0
+price_range = Vector2i(12, 16)
+sprite = ExtResource("3_p22ca")
+display_name = "simple boots"
+description = "Simple feet deserve simple boots.
++5 move speed"
+effects = Array[ExtResource("1_p1hsg")]([SubResource("Resource_atqjp")])

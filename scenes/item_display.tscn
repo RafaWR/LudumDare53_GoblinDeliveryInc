@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/item/ItemDisplay.gd" id="1_iwqum"]
+[ext_resource type="Script" path="res://scripts/game/Inspectable.gd" id="2_1r8h1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdrvv"]
+size = Vector2(12, 12)
+
+[node name="Item" type="Sprite2D"]
+script = ExtResource("1_iwqum")
+
+[node name="Inspectable" type="Area2D" parent="." node_paths=PackedStringArray("inspected")]
+script = ExtResource("2_1r8h1")
+inspected = NodePath("..")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Inspectable"]
+visible = false
+shape = SubResource("RectangleShape2D_sdrvv")

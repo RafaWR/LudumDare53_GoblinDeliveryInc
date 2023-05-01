@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://kan2ynsepvn" path="res://scenes/path_parts/path_part.tscn" id="1_jm26w"]
+
+[node name="PathPart" instance=ExtResource("1_jm26w")]
+frame = 5

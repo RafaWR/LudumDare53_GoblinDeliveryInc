@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://djsccrxayxp5r"]
+
+[ext_resource type="FontFile" uid="uid://diynxuyc8elah" path="res://fonts/SquareBit.ttf" id="1_87kc7"]
+[ext_resource type="Texture2D" uid="uid://dli1v5idbp6w0" path="res://sprites/menus/sound_scroll.png" id="1_acnrs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m0rsb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2m17o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k82j1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mymxa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ox6ou"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jlqks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0gnj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_padk2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i5qlo"]
+
+[resource]
+default_font = ExtResource("1_87kc7")
+default_font_size = 7
+Button/styles/disabled = SubResource("StyleBoxEmpty_m0rsb")
+Button/styles/focus = SubResource("StyleBoxEmpty_2m17o")
+Button/styles/hover = SubResource("StyleBoxEmpty_k82j1")
+Button/styles/normal = SubResource("StyleBoxEmpty_mymxa")
+Button/styles/pressed = SubResource("StyleBoxEmpty_ox6ou")
+Label/constants/line_spacing = 0
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_jlqks")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_l0gnj")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_padk2")
+VSlider/icons/grabber = ExtResource("1_acnrs")
+VSlider/icons/grabber_disabled = ExtResource("1_acnrs")
+VSlider/icons/grabber_highlight = ExtResource("1_acnrs")
+VSlider/styles/slider = SubResource("StyleBoxEmpty_i5qlo")

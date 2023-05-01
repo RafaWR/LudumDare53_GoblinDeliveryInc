@@ -1,0 +1,16 @@
+
+
+0 - map floor
+1 - tile borders
+10 - map terrain (y sorted)
+
+1 - house shadow
+10 - quest spot (y sorted)
+21 - quest marker
+
+18 - goblin path (+2 highlighted)
+19 - goblin path points (+2 highlighted)
+20 - goblin (+2 highlighted)
+
+99 - target
+100 - ui

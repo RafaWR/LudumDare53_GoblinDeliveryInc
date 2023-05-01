@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://bwylet8svngfg"]
+
+[ext_resource type="Script" path="res://scripts/game/item/ItemEffect.gd" id="1_smkhw"]
+[ext_resource type="Script" path="res://scripts/game/item/Item.gd" id="2_uuhjb"]
+[ext_resource type="Texture2D" uid="uid://3vjmhuojwiwp" path="res://sprites/items/small_bag.png" id="3_qxece"]
+
+[sub_resource type="Resource" id="Resource_2r101"]
+script = ExtResource("1_smkhw")
+type = 10
+value = 1.0
+
+[resource]
+script = ExtResource("2_uuhjb")
+type = 1
+price_range = Vector2i(9, 12)
+sprite = ExtResource("3_qxece")
+display_name = "small bag"
+description = "Not very big but at least its something.
++1 carry space"
+effects = Array[ExtResource("1_smkhw")]([SubResource("Resource_2r101")])

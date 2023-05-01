@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://cq6gm7sohny0w"]
+
+[ext_resource type="Script" path="res://scripts/game/item/ItemEffect.gd" id="1_aagf1"]
+[ext_resource type="Script" path="res://scripts/game/item/Item.gd" id="2_6o33v"]
+[ext_resource type="Texture2D" uid="uid://o7yt2ae4fa3r" path="res://sprites/items/goblin_1.png" id="3_3tkhs"]
+
+[sub_resource type="Resource" id="Resource_rspci"]
+script = ExtResource("1_aagf1")
+type = -1
+value = 1.0
+
+[resource]
+script = ExtResource("2_6o33v")
+type = 2
+price_range = Vector2i(12, 24)
+sprite = ExtResource("3_3tkhs")
+display_name = "goblin"
+description = "A quick goblin looking for work."
+effects = Array[ExtResource("1_aagf1")]([SubResource("Resource_rspci")])

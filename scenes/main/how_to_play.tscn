@@ -1,0 +1,238 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck33adgessgte"]
+
+[ext_resource type="Texture2D" uid="uid://c2u77dwtdf65w" path="res://sprites/how_to_play.png" id="1_3kfe0"]
+[ext_resource type="Script" path="res://scripts/menus/ToMenuOnEsc.gd" id="2_l5y57"]
+[ext_resource type="Theme" uid="uid://djsccrxayxp5r" path="res://fonts/SquareBit.tres" id="2_vnj4r"]
+[ext_resource type="Script" path="res://scripts/menus/SceneChangeButton.gd" id="3_6oju0"]
+
+[node name="HowToPlay" type="Sprite2D"]
+texture = ExtResource("1_3kfe0")
+script = ExtResource("2_l5y57")
+
+[node name="Menu" type="Button" parent="."]
+offset_left = -156.0
+offset_top = -96.0
+offset_right = -127.0
+offset_bottom = -87.0
+theme = ExtResource("2_vnj4r")
+script = ExtResource("3_6oju0")
+scene_loaded = "title_screen"
+
+[node name="Goblin" type="Label" parent="."]
+z_index = 1
+offset_left = -115.0
+offset_top = -37.0
+offset_bottom = -9.0
+theme = ExtResource("2_vnj4r")
+text = "This is a goblin,
+click on it to see its details
+on the top right and to draw
+a path for it to walk"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Goblin"]
+z_index = -1
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 116.0
+offset_bottom = 29.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="Package" type="Label" parent="."]
+z_index = 1
+offset_left = -126.0
+offset_top = -81.0
+offset_right = -15.0
+offset_bottom = -53.0
+theme = ExtResource("2_vnj4r")
+text = "This means this house
+has a package waiting
+to be delivered"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Package"]
+z_index = -1
+layout_mode = 0
+offset_left = 11.0
+offset_top = -1.0
+offset_right = 98.0
+offset_bottom = 22.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="StopGo" type="Label" parent="."]
+z_index = 1
+offset_left = 18.0
+offset_top = -80.0
+offset_right = 129.0
+offset_bottom = -52.0
+theme = ExtResource("2_vnj4r")
+text = "goblin stop/go"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="StopGo"]
+z_index = -1
+layout_mode = 0
+offset_left = 25.0
+offset_top = -1.0
+offset_right = 84.0
+offset_bottom = 8.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="Name" type="Label" parent="."]
+z_index = 1
+offset_left = 13.0
+offset_top = -70.0
+offset_right = 124.0
+offset_bottom = -42.0
+theme = ExtResource("2_vnj4r")
+text = "you can edit your
+goblin's names"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Name"]
+z_index = -1
+layout_mode = 0
+offset_left = 20.0
+offset_top = -1.0
+offset_right = 89.0
+offset_bottom = 15.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="Items" type="Label" parent="."]
+z_index = 1
+offset_left = 2.0
+offset_top = -52.0
+offset_right = 113.0
+offset_bottom = -24.0
+theme = ExtResource("2_vnj4r")
+text = "goblin items and speed"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Items"]
+z_index = -1
+layout_mode = 0
+offset_left = 8.0
+offset_top = -1.0
+offset_right = 100.0
+offset_bottom = 8.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="Packages" type="Label" parent="."]
+z_index = 1
+offset_top = -32.0
+offset_right = 111.0
+offset_bottom = -4.0
+theme = ExtResource("2_vnj4r")
+text = "goblin carried packages"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Packages"]
+z_index = -1
+layout_mode = 0
+offset_left = 8.0
+offset_top = -1.0
+offset_right = 102.0
+offset_bottom = 8.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="House" type="Label" parent="."]
+z_index = 1
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 108.0
+offset_bottom = 26.0
+theme = ExtResource("2_vnj4r")
+text = "This shows the house your
+selected goblin is at"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="House"]
+z_index = -1
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 105.0
+offset_bottom = 15.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="POI" type="Label" parent="."]
+z_index = 1
+offset_left = -17.0
+offset_top = 20.0
+offset_right = 101.0
+offset_bottom = 48.0
+theme = ExtResource("2_vnj4r")
+text = "This shows the package
+this house needs delivered and 
+the items sold here"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="POI"]
+z_index = -1
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 119.0
+offset_bottom = 22.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="Clock" type="Label" parent="."]
+z_index = 1
+offset_left = -1.0
+offset_top = 55.0
+offset_right = 117.0
+offset_bottom = 83.0
+theme = ExtResource("2_vnj4r")
+text = "Every shop resets when
+this goes to zero"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Clock"]
+z_index = -1
+layout_mode = 0
+offset_left = 12.0
+offset_top = -1.0
+offset_right = 103.0
+offset_bottom = 15.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="Money" type="Label" parent="."]
+z_index = 1
+offset_left = 7.0
+offset_top = 81.0
+offset_right = 125.0
+offset_bottom = 109.0
+theme = ExtResource("2_vnj4r")
+text = "This is your coins
+and goblins"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Money"]
+z_index = -1
+layout_mode = 0
+offset_left = 22.0
+offset_top = -1.0
+offset_right = 95.0
+offset_bottom = 15.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="Inspector" type="Label" parent="."]
+z_index = 1
+offset_left = -147.0
+offset_top = 52.0
+offset_right = -29.0
+offset_bottom = 80.0
+theme = ExtResource("2_vnj4r")
+text = "Information about what you
+click can be viewed here"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Inspector"]
+z_index = -1
+layout_mode = 0
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 113.0
+offset_bottom = 15.0
+color = Color(0, 0, 0, 0.537255)

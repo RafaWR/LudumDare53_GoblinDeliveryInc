@@ -1,0 +1,125 @@
+[gd_scene load_steps=15 format=3 uid="uid://btm11lqdlooss"]
+
+[ext_resource type="Texture2D" uid="uid://1k4lmjqgwmu5" path="res://sprites/world/house.png" id="1_knnni"]
+[ext_resource type="Script" path="res://scripts/game/poi/POI.gd" id="2_rxod5"]
+[ext_resource type="Texture2D" uid="uid://b0eju46wr67oh" path="res://sprites/quest/quest_balloon.png" id="3_agapa"]
+[ext_resource type="Resource" uid="uid://8j84jx5g7m22" path="res://resources/quest_pack.tres" id="3_l14rs"]
+[ext_resource type="Resource" uid="uid://bhfcg8sw7opt5" path="res://resources/item_pack.tres" id="4_22vck"]
+[ext_resource type="Script" path="res://scripts/game/quests/QuestItemDisplay.gd" id="4_32kdj"]
+[ext_resource type="Texture2D" uid="uid://dmp0x17kjsmce" path="res://sprites/quest/quest_item_base.png" id="5_6r17f"]
+[ext_resource type="Texture2D" uid="uid://dm3le8cd6ay13" path="res://sprites/quest/quest_item_stamp.png" id="6_kpcgv"]
+[ext_resource type="Script" path="res://scripts/game/Inspectable.gd" id="8_ppfiv"]
+[ext_resource type="Texture2D" uid="uid://b4kvguoj82rq7" path="res://sprites/world/house_shadow.png" id="9_mgrtg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgmqf"]
+size = Vector2(10, 10)
+
+[sub_resource type="Animation" id="Animation_4bjx5"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gpqio"]
+resource_name = "pop"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -18), Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gh4nw"]
+_data = {
+"RESET": SubResource("Animation_4bjx5"),
+"pop": SubResource("Animation_gpqio")
+}
+
+[node name="POI" type="Sprite2D"]
+z_index = 10
+y_sort_enabled = true
+texture = ExtResource("1_knnni")
+offset = Vector2(0, -8)
+hframes = 8
+script = ExtResource("2_rxod5")
+quest_pack = ExtResource("3_l14rs")
+item_pack = ExtResource("4_22vck")
+
+[node name="QuestBalloon" type="Sprite2D" parent="."]
+z_index = 21
+z_as_relative = false
+position = Vector2(0, -16)
+texture = ExtResource("3_agapa")
+hframes = 3
+script = ExtResource("4_32kdj")
+
+[node name="Base" type="Sprite2D" parent="QuestBalloon"]
+texture = ExtResource("5_6r17f")
+hframes = 3
+vframes = 3
+
+[node name="Stamp" type="Sprite2D" parent="QuestBalloon"]
+texture = ExtResource("6_kpcgv")
+hframes = 3
+vframes = 3
+
+[node name="Inspectable" type="Area2D" parent="QuestBalloon" node_paths=PackedStringArray("inspected")]
+collision_mask = 0
+monitoring = false
+monitorable = false
+script = ExtResource("8_ppfiv")
+inspected = NodePath("..")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="QuestBalloon/Inspectable"]
+visible = false
+shape = SubResource("RectangleShape2D_kgmqf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="QuestBalloon"]
+libraries = {
+"": SubResource("AnimationLibrary_gh4nw")
+}
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+texture = ExtResource("9_mgrtg")

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemPack" load_steps=14 format=3 uid="uid://bhfcg8sw7opt5"]
+
+[ext_resource type="Script" path="res://scripts/game/item/ItemPack.gd" id="1_2d8yq"]
+[ext_resource type="Resource" uid="uid://bwylet8svngfg" path="res://resources/items/bags/small_bag.tres" id="1_rk1gc"]
+[ext_resource type="Resource" uid="uid://clmvyfp4sti4m" path="res://resources/items/bags/large_bag.tres" id="2_yt7vu"]
+[ext_resource type="Resource" uid="uid://04c3yuehqnxi" path="res://resources/items/boots/simple_boots.tres" id="3_775p3"]
+[ext_resource type="Resource" uid="uid://s13w2pw0pdyo" path="res://resources/items/boots/traveller_boots.tres" id="4_yr6pv"]
+[ext_resource type="Resource" uid="uid://csdb4ijl0b7yv" path="res://resources/items/goblins/goblin_0.tres" id="5_lk5n6"]
+[ext_resource type="Resource" uid="uid://cq6gm7sohny0w" path="res://resources/items/goblins/goblin_1.tres" id="6_fv5yu"]
+[ext_resource type="Resource" uid="uid://dfjdomsc45k3j" path="res://resources/items/goblins/goblin_2.tres" id="7_8f4c3"]
+[ext_resource type="Resource" uid="uid://p0xt5gvrcbvp" path="res://resources/items/goblins/goblin_3.tres" id="8_xhvno"]
+[ext_resource type="Resource" uid="uid://8nkuxqq2sujj" path="res://resources/items/goblins/goblin_4.tres" id="9_vxr51"]
+[ext_resource type="Resource" uid="uid://cuw07da5ofpc5" path="res://resources/items/goblins/goblin_5.tres" id="10_wl6a1"]
+[ext_resource type="Resource" uid="uid://dq6cm518k2pxw" path="res://resources/items/goblins/goblin_6.tres" id="11_nwuol"]
+[ext_resource type="Resource" uid="uid://dc83uyblmfyng" path="res://resources/items/goblins/goblin_7.tres" id="12_nctnn"]
+
+[resource]
+script = ExtResource("1_2d8yq")
+boot_items = Array[Resource("res://scripts/game/item/Item.gd")]([ExtResource("3_775p3"), ExtResource("4_yr6pv")])
+bag_items = Array[Resource("res://scripts/game/item/Item.gd")]([ExtResource("1_rk1gc"), ExtResource("2_yt7vu")])
+goblin_items = Array[Resource("res://scripts/game/item/Item.gd")]([ExtResource("5_lk5n6"), ExtResource("6_fv5yu"), ExtResource("7_8f4c3"), ExtResource("8_xhvno"), ExtResource("9_vxr51"), ExtResource("10_wl6a1"), ExtResource("11_nwuol"), ExtResource("12_nctnn")])
